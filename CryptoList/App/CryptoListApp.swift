@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct CryptoListApp: App {
+    
+    @StateObject var watchList = WatchListManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                CryptoCurrencyListView(watchList: watchList)
+            }
         }
     }
 }

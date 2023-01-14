@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "892E56DD-D4AB-4797-B76B-1DB9B9C1DC25"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3692DA2-C0BC-4B06-980A-814293C0E824"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoList/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "A3692DA2-C0BC-4B06-980A-814293C0E824 - 2ed7d4fc8a9bb6f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.Text&gt;, SwiftUI.Button&lt;SwiftUI.Text&gt;)&gt; in CryptoList.ContentView.body.getter : some"
+                  moduleName = "CryptoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kcokolo/Developer/CryptoList/CryptoList/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "A3692DA2-C0BC-4B06-980A-814293C0E824 - 2ed7d4fc8a9bb6f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;SwiftUI.Text&gt;, SwiftUI.Button&lt;SwiftUI.Text&gt;)&gt; in CryptoList.ContentView.body.getter : some"
+                  moduleName = "CryptoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kcokolo/Developer/CryptoList/CryptoList/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1052">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BBB09BD-A934-4E23-9DDD-CABE11AAD530"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptoList/CurrencyList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "refresh()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0BBB09BD-A934-4E23-9DDD-CABE11AAD530 - b52dcec22b229cd4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in CryptoList.CurrencyList.refresh() -&gt; ()"
+                  moduleName = "CryptoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kcokolo/Developer/CryptoList/CryptoList/CurrencyList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "0BBB09BD-A934-4E23-9DDD-CABE11AAD530 - 24f680e38dc4cf4c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for closure #1 @Sendable () async -&gt; () in CryptoList.CurrencyList.refresh() -&gt; ()"
+                  moduleName = "CryptoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kcokolo/Developer/CryptoList/CryptoList/CurrencyList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "0BBB09BD-A934-4E23-9DDD-CABE11AAD530 - c3cc4b10545950d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in CryptoList.CurrencyList.refresh() -&gt; ()"
+                  moduleName = "CryptoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kcokolo/Developer/CryptoList/CryptoList/CurrencyList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "0BBB09BD-A934-4E23-9DDD-CABE11AAD530 - 10ecd526fef014d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in CryptoList.CurrencyList.refresh() -&gt; ()"
+                  moduleName = "CryptoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kcokolo/Developer/CryptoList/CryptoList/CurrencyList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
