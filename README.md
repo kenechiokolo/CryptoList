@@ -12,3 +12,6 @@ The app also doesn't list all the currencies returned by the API - only the firs
 favourites can be edited by the user using swipe actions and they persist between launches using User Defaults.
 
 Not that the app requires an internet connection to fetch any data, and that previously returned rates are not saved.
+
+Screenshot from App:
+![Simulator Screen Shot - iPhone 14 Pro Max - 2023-01-15 at 18 09 49](https://user-images.githubusercontent.com/11274830/212559063-d782e683-ef18-430b-82bc-adebb911c0fd.png)
