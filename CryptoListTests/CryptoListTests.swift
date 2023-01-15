@@ -9,28 +9,73 @@ import XCTest
 @testable import CryptoList
 
 final class CryptoListTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    private let testFavourite = "btcusdt"
+    private let testFavourites = ["xrpusdt", "ethusdt", "ltcusdt", "btcusdt"]
+    
+    private let sampleData: [CryptoCurrencyRate] = {
+        let bundle = Bundle(for: WatchListManager.self)
+        guard let url = bundle.url(forResource: "crypto_sample_data", withExtension: "json") else { return [] }
+        guard let data = (try? Data(contentsOf: url)) else { return [] }
+        let currencies = (try? JSONDecoder().decode([CryptoCurrencyRate].self, from: data)) ?? []
+        return currencies.filter { $0.symbol.hasSuffix("usdt") }
+    }()
+    
+    func testDeletionRemovesItemFromFavourites() {
+        let watchList = WatchListManager(completeList: sampleData, favourites: testFavourites)
+        XCTAssertTrue(watchList.favourites.contains(testFavourite))
+        watchList.remove(atOffsets: IndexSet(integer: 3))
+        XCTAssertFalse(watchList.favourites.contains(testFavourites))
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testToggleFavouritesAddsFavourite() {
+        let watchList = WatchListManager(completeList: sampleData, favourites: [])
+        XCTAssertFalse(watchList.favourites.contains(testFavourite))
+        watchList.toggleFavourite(testFavourite)
+        XCTAssertTrue(watchList.favourites.contains(testFavourite))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testToggleFavouritesRemovesFavourite() {
+        let watchList = WatchListManager(completeList: sampleData, favourites: testFavourites)
+        XCTAssertTrue(watchList.favourites.contains(testFavourite))
+        watchList.toggleFavourite(testFavourite)
+        XCTAssertFalse(watchList.favourites.contains(testFavourite))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testSearchCorrectlyFiltersResults() {
+        let watchList = WatchListManager(completeList: sampleData, favourites: testFavourites)
+        let searchTerm = "ftt"
+        let resultCount = sampleData.filter { $0.symbol.lowercased().contains(searchTerm) }.count
+        watchList.searchText = searchTerm
+        XCTAssertEqual(resultCount, watchList.visibleList.count)
     }
-
+    
+    func testCryptoCurrencyRateViewModelGivesExpectedStringWhenConverted() {
+        
+        let watchList = WatchListManager(completeList: sampleData, favourites: testFavourites)
+        let currencyRate = watchList.visibleList[0]
+        let lastPrice = (NumberFormatter().number(from: currencyRate.lastPrice) as? Double) ?? 0
+        
+        watchList.conversionRates = ["USD" : 1, "SEK": 10]
+        watchList.baseCurrency = .sek
+        
+        let convertedLastPrice = (lastPrice * 10).formatted(.currency(code: "SEK"))
+        let currencyRateViewModel = CryptoCurrencyRateViewModel(coin: currencyRate, conversionRate: watchList.conversionRate)
+        
+        XCTAssertTrue(currencyRateViewModel.lastPrice == convertedLastPrice)
+    }
+    
+    func testCryptoCurrencyRateViewModelGivesExpectedString() {
+        
+        let watchList = WatchListManager(completeList: sampleData, favourites: testFavourites)
+        let currencyRate = watchList.visibleList[0]
+        let lastPrice = (NumberFormatter().number(from: currencyRate.lastPrice) as? Double) ?? 0
+        let lastPriceString = lastPrice.formatted(.currency(code: "USD"))
+        
+        watchList.conversionRates = ["USD" : 1, "SEK": 10]
+        
+        let currencyRateViewModel = CryptoCurrencyRateViewModel(coin: currencyRate, conversionRate: watchList.conversionRate)
+        
+        XCTAssertTrue(currencyRateViewModel.lastPrice == lastPriceString)
+    }
 }

@@ -12,24 +12,25 @@ class WatchListManager: ObservableObject {
     @Published var isDisplayingErrorAlert = false
     
     @Published var baseCurrency = DisplayCurrency.usd
-    @Published var favourites = [String]()
+    @Published private (set) var favourites = [String]()
     @Published var searchText = ""
     
     private (set) var fetchDate = Date()
     
     var error: NSError?
+    var conversionRates: [String:Double] = [:]
     
     let title = "Watchlist"
     let pickerTitle = "Base Currency"
     let errorAlertTitle = "Oops! Something went wrong..."
     
-    init(list: [CryptoCurrencyRate] = []) {
-        self.favourites = UserDefaults.standard.value(forKey: "favourites") as? [String] ?? []
+    init(completeList: [CryptoCurrencyRate] = [], favourites: [String]? = nil) {
+        self.favourites = favourites ?? []
         
-        self.completeList = list
-        self.list = completeList.filter { favourites.contains($0.symbol) }
+        self.completeList = completeList
+        self.list = completeList.filter { self.favourites.contains($0.symbol) }
         
-        guard list.isEmpty else { return }
+        guard completeList.isEmpty else { return }
         Task {
             await refresh()
         }
@@ -38,7 +39,6 @@ class WatchListManager: ObservableObject {
     private let requestManager = RequestManager()
     
     private var completeList = [CryptoCurrencyRate]()
-    private var conversionRates: [String:Double] = [:]
     
     @Published private var list = [CryptoCurrencyRate]()
 }

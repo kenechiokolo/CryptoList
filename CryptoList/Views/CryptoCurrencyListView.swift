@@ -74,9 +74,16 @@ struct CryptoCurrencyListView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
+    static let favourites = CryptoCurrencyRate.sampleData.prefix(10).compactMap { $0.symbol }
+    
+    @StateObject static var watchList: WatchListManager = {
+        WatchListManager(completeList: CryptoCurrencyRate.sampleData, favourites: favourites)
+    }()
+    
     static var previews: some View {
         NavigationStack {
-            CryptoCurrencyListView(watchList: WatchListManager(list: CryptoCurrencyRate.sampleData))
+            CryptoCurrencyListView(watchList: watchList)
         }
     }
 }
